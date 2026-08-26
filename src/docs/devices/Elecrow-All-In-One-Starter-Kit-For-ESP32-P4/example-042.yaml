@@ -49,29 +49,6 @@ binary_sensor:
     on_release:
       switch.turn_off: relay1
 
-# Device 2
-esphome:
-  name: device-2
-
-packet_transport:
-  binary_sensors:
-    - relay2_sensor
-
-switch:
-  - platform: gpio
-    pin: GPIO6
-    id: relay2
-    name: "Device 2 switch"
-
-binary_sensor:
-  - platform: template
-    id: relay2_sensor
-    lambda: "return id(relay2).state;"
-
-  - platform: packet_transport
-    provider: device-1
-    id: relay1_sensor
-    on_press:
-      switch.turn_on: relay2
-    on_release:
-      switch.turn_off: relay2
+# The remote device (device-2) must use its own separate ESPHome YAML file.
+# This file intentionally contains only the device-1 configuration so it is
+# valid when rendered or linted as a standalone example.
