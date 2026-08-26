@@ -1,7 +1,7 @@
 ---
 title: Elecrow All-in-One Starter Kit for ESP32-P4
 date-published: 2026-02-12
-type: dev-board
+type: misc
 standard: global
 board: esp32
 difficulty: 2
