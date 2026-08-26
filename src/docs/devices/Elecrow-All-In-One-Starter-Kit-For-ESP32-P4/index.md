@@ -7,6 +7,8 @@ board: esp32
 difficulty: 2
 ---
 
+<!-- markdownlint-disable MD013 MD024 MD025 MD033 -->
+
 import Svg10CustomKeyP1Svg from './10-custom-key-p1.svg';
 import Svg11TouchSensorP1Svg from './11-touch-sensor-p1.svg';
 import Svg12MicP1Svg from './12-mic-p1.svg';
@@ -48,7 +50,7 @@ The Elecrow ESP32-P4 All-in-One Starter Kit is a comprehensive AI and IoT develo
 ## Specifications
 
 | Parameter | Value |
-|-----------|-------|
+| ----------- | ------- |
 | **Main Processor** | ESP32-P4NRW32 |
 | **CPU (HP)** | 32-bit RISC-V dual-core processor  (up to 360 MHz) |
 | **CPU (LP)** | 32-bit RISC-V single-core processor (up to 40 MHz) |
@@ -99,7 +101,7 @@ Additional I/O:
 
 ## Lessons
 
-The following lessons demonstrate how to use each sensor and component on the board. 
+The following lessons demonstrate how to use each sensor and component on the board.
 
 Each lesson below is from the manual and corresponds to a conversion of the ESP-IDF code to an ESPHome example YAML. There are also a few extras at the end (Ethernet, SD-Card, USB, wireless modules, etc.).
 
@@ -128,11 +130,12 @@ Each lesson below is from the manual and corresponds to a conversion of the ESP-
 18. [Lesson 18 Speaker](#lesson-18-speaker-i2s-audio)
 19. [Lesson 19 Display LVGL Touch](#lesson-display-with-lvgl--touch)
 
-# Quick Dev Environment Setup For New Users
+## Quick Dev Environment Setup For New Users
 
 How to setup a quick environment to play with.
 
 ## Required Versions
+
 - Python 3.13+
 - ESPHome 2026.02+
 - ESP-IDF 5.4.2+ (the ESP32-C6 ESP-Hosted build is tested with 5.5.2)
@@ -152,7 +155,6 @@ How to setup a quick environment to play with.
    - [PlatformIO IDE](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide)
    - [ESP-IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
    - [YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
-
 
 3. **Install ESPHome**
 
@@ -209,7 +211,7 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 The P4 usually appears as a `COM` port. Find the exact port in Device Manager
 under **Ports (COM & LPT)**.
 
-4. **Connect Device**
+1. **Connect Device**
    - Connect AIO ESP32-P4 kit via USB Type-C cable.
    - Ensure device is detected with the proper drivers and lights up.
 
@@ -218,14 +220,19 @@ under **Ports (COM & LPT)**.
 Backup the factory firmware just in case you want to test to see if everything is working again.
 
 ### Identify P4
+
 ```bash
 esptool --chip esp32p4 --port PORT flash-id
 ```
+
 ### Dump Flash P4
+
 ```bash
 esptool --chip esp32p4 --port PORT read-flash 0 0x1000000 elecrow_aio_kit_firmware_backup.bin
 ```
+
 ### Restore Flash P4
+
 ```bash
 esptool --chip esp32p4 --port PORT write-flash 0 elecrow_aio_kit_firmware_backup.bin
 ```
@@ -397,7 +404,7 @@ Manual Lesson 11
 **Key Display Parameters (Verified from Official Code):**
 
 | Parameter | Value | Source |
-|-----------|-------|--------|
+| ----------- | ------- | -------- |
 | **Controller** | EK79007 | esp_lcd_new_panel_ek79007() |
 | **Resolution** | 1024×600 | H_size × V_size |
 | **Lane Bit Rate** | 1000 Mbps | Tested custom AIO YAML configuration |
@@ -416,6 +423,7 @@ Manual Lesson 11
 | **Backlight GPIO** | GPIO20 | LCD_GPIO_BLIGHT (PWM) |
 
 **Backlight PWM Settings:**
+
 - Frequency: 1 kHz (BLIGHT_PWM_Hz in code)
 - Resolution: 11-bit (LEDC_TIMER_11_BIT)
 - Formula: `duty = (brightness * 18) + 200` where brightness is 0-100
@@ -501,7 +509,6 @@ Manual Lesson 19
 GPIO24 is the PIR sensor output on the AIO board. This example assumes the
 board is using UART0 rather than the USB-Serial-JTAG interface.
 
-
 ```yaml file=example-013.yaml
 ```
 
@@ -542,7 +549,6 @@ board is using UART0 rather than the USB-Serial-JTAG interface.
 servo levels represent direction and speed around the stop position. The V1.1
 kit uses a standard 180° servo, so servo levels represent position instead.
 Both revisions use the GPIO25 PWM signal shown below.
-
 
 ```yaml file=example-015.yaml
 ```
@@ -593,7 +599,6 @@ Manual Lesson 13
 ```yaml file=example-019.yaml
 ```
 
-
 #### 9. Hall Effect Sensor (Hallwee HAL248) U7
 
 <Svg9HallSensorP1Svg
@@ -634,9 +639,6 @@ Manual Lesson 5
 | GPIO16 | 2kΩ | K7 [Right] |
 | GPIO16 | 3.6kΩ | K6 [Down] |
 | GPIO16 | 8.2kΩ | K5 [Up] |
-
-
-
 
 ```yaml file=example-022.yaml
 ```
@@ -886,7 +888,8 @@ Add the credentials to ESPHome's `secrets.yaml` file:
   style={{ width: '800px', height: 'auto' }}
 />
 
-##### J8
+#### J8
+
 | Function / GPIO | Hardware Pin |
 | :--- | :--- |
 | VDD_3V3 | J8 Pin 01 |
@@ -911,6 +914,7 @@ Add the credentials to ESPHome's `secrets.yaml` file:
 | GND | J8 Pin 20 |
 
 ##### J9
+
 | Function / GPIO | Hardware Pin |
 | :--- | :--- |
 | VDD 5V | J9 Pin 01 |
@@ -980,6 +984,7 @@ Manual Lesson 1
 | VDD 5V | J13 Pin 07 |
 
 ##### J16
+
 | Function / GPIO | Hardware Pin |
 | :--- | :--- |
 | GPIO54 W RX IRQ | J16 Pin 01 |
@@ -1214,9 +1219,9 @@ remove the module and want to use it with another board that supports
 ESP-Hosted SDIO, you can restore compatible SDIO firmware from the
 [ESP-Hosted firmware downloads](https://esphome.github.io/esp-hosted-firmware/).
 
+#### Pin Alignment
 
-##### Pin Alignment
-```
+```text
 ESP32-P4  C6-Wireless-Module
 GPIO02    EN
 GPIO14    GPIO19
@@ -1228,6 +1233,7 @@ GPIO11    GPIO23
 ```
 
 ##### YAML Example
+
 ```yaml file=example-039.yaml
 ```
 
@@ -1452,7 +1458,6 @@ must be verified before assigning host-side GPIOs.
 | WAKEUP_IN | Left Pin 06 | **Verify** | Module wake-up input |
 | NC | Left Pin 07 | **Verify** | Not connected on module |
 
-
 ##### Right Pins
 
 | Module signal / GPIO | Module pin | ESP32-P4 GPIO | Signal role |
@@ -1507,7 +1512,6 @@ Environmental sensor add-on module with Bosch BME688 for VOC, eCO₂, IAQ, tempe
 | ? | Left Pin 06 | GND | GROUND |
 | ? | Left Pin 07 | VDD 5V | Power 5V |
 
-
 ##### Right Pins
 
 | Module signal / GPIO | Module pin | ESP32-P4 GPIO | Signal role |
@@ -1516,7 +1520,7 @@ Environmental sensor add-on module with Bosch BME688 for VOC, eCO₂, IAQ, tempe
 | ? | Right Pin 02 | GPIO07 | ? |
 | ? | Right Pin 03 | GPIO02 | ? |
 | ? | Right Pin 04 | N/C | ? |
-| ? | Right Pin 05 | GPIO15  | ? |
+| ? | Right Pin 05 | GPIO15 | ? |
 | ? | Right Pin 06 | GPIO14 | ? |
 | ? | Right Pin 07 | N/C | ? |
 
@@ -1553,12 +1557,14 @@ Ready-to-use AI coprocessor with open-source firmware, hardware, and examples. T
 | Voltage | 3.3V |
 
 #### Usage
+
 - TinyML/TinyLM inference
 - Frameworks supported: CMSIS-NN, GRC SDK, TensorFlow Lite for Micro (adapted)
 - Text generation, classification
 - Voice interfaces
 
 #### Demo
+
 TinyStories
 
 An interactive storytelling prototype based on the TinyStories Language Model. It showcases how compact hardware can be used for interactive natural language generation — all at the edge, with low power consumption and no internet required for model inference.
@@ -1597,6 +1603,7 @@ installing the module.
 
 ```yaml file=example-046.yaml
 ```
+
 #### Additional Links
 
 - **Product Information**: [Official Website](https://www.elecrow.com/grc-ai-add-on-for-crowpanel-on-hx6538.html)
@@ -1680,6 +1687,7 @@ the bootloader during flashing.
 ```
 
 ### Lesson 6: UART Communication
+
 **Description**: Send and receive data via UART serial communication.
 
 ```yaml file=example-050.yaml
@@ -1784,7 +1792,7 @@ the bootloader during flashing.
 />
 
 | Rail | Voltage | IC | Notes |
-|------|---------|-----|-------|
+| ------ | --------- | ----- | ------- |
 | **VDD_3V3** | 3.3V | RY3430 | Main 3.3V rail |
 | **ESP_VDD_HP_1V2** | 1.2V | RY3430 | ESP32-P4 core supply (U3) |
 | **VDD_5V** | 5V | Input | USB/External |
@@ -1801,7 +1809,6 @@ the bootloader during flashing.
 
 ```yaml file=example-053.yaml
 ```
-
 
 ### Example Configuration (GPIOs Require Verification)
 
@@ -1850,4 +1857,4 @@ board configuration; verify every GPIO assignment before using it.
 
 - [Elecrow Forum](https://forum.elecrow.com)
 - [Elecrow Discord](https://discord.com/invite/xYXCnH4AR9)
-- Technical Support: techsupport@elecrow.com
+- Technical Support: <techsupport@elecrow.com>
