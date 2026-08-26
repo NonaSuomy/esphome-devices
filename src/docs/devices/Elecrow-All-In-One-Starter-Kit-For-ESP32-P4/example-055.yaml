@@ -1,0 +1,10 @@
+# Requires custom audio components
+# Reference: https://esphome.io/components/voice_assistant.html
+
+voice_assistant:
+  microphone: my_microphone
+  speaker: my_speaker
+  on_listening:
+    - light.turn_on: led
+  on_stt_end:
+    - light.turn_off: led

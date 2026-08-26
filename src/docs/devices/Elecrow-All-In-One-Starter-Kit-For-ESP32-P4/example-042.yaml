@@ -1,0 +1,77 @@
+spi:
+  clk_pin: GPIO09
+  mosi_pin: GPIO11
+  miso_pin: GPIO10
+
+sx126x:
+  dio1_pin: GPIO53
+  cs_pin: GPIO14
+  busy_pin: GPIO15
+  rst_pin: GPIO54
+  pa_power: 3
+  bandwidth: 125_0kHz
+  crc_enable: true
+  frequency: 433.92MHz
+  modulation: LORA
+  hw_version: sx1262
+  rf_switch: true
+  sync_value: [0x14, 0x24]
+  preamble_size: 8
+  spreading_factor: 7
+  coding_rate: CR_4_6
+  tcxo_voltage: 1_8V
+  tcxo_delay: 5ms
+
+# Device 1
+esphome:
+  name: device-1
+
+packet_transport:
+  binary_sensors:
+    - relay1_sensor
+
+switch:
+  - platform: gpio
+    pin: GPIO6
+    id: relay1
+    name: "Device 1 switch"
+
+binary_sensor:
+  - platform: template
+    id: relay1_sensor
+    lambda: "return id(relay1).state;"
+
+  - platform: packet_transport
+    provider: device-2
+    id: relay2_sensor
+    on_press:
+      switch.turn_on: relay1
+    on_release:
+      switch.turn_off: relay1
+
+# Device 2
+esphome:
+  name: device-2
+
+packet_transport:
+  binary_sensors:
+    - relay2_sensor
+
+switch:
+  - platform: gpio
+    pin: GPIO6
+    id: relay2
+    name: "Device 2 switch"
+
+binary_sensor:
+  - platform: template
+    id: relay2_sensor
+    lambda: "return id(relay2).state;"
+
+  - platform: packet_transport
+    provider: device-1
+    id: relay1_sensor
+    on_press:
+      switch.turn_on: relay2
+    on_release:
+      switch.turn_off: relay2

@@ -1,0 +1,7 @@
+light:
+  # 3. RGB LEDs
+  - platform: neopixelbus
+    pin: GPIO8
+    num_leds: 4
+    name: "RGB LEDs"
+    variant: WS2812X
