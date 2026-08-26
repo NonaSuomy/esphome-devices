@@ -106,7 +106,7 @@ Each lesson below is from the manual and corresponds to a conversion of the ESP-
 ```yaml file=config.yaml
 ```
 
-**📖 For detailed lesson instructions, see the [Official User Manual (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual.pdf)**
+**📖 For detailed lesson instructions, see the [Official User Manual V1.0 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual.pdf) or [User Manual V1.1 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual_V1.1.pdf).**
 
 1. [Lesson 1 GPIO LED Control](#lesson-gpio---led-control)
 2. [Lesson 2 Relay](#lesson-relay-control)
@@ -1841,7 +1841,8 @@ board configuration; verify every GPIO assignment before using it.
 - **Wiki Documentation**: [ESP32-P4 Kit Wiki](https://www.elecrow.com/wiki/All-in-one_Starter_Kit_for_ESP32-P4_with_Common_Board_design.html)
 - **Schematic V1.0**: [All-in-one Starter Kit for ESP32-P4 Arduino V1.0 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_Arduino-V1.0.pdf)
 - **Schematic V1.1**: [All-in-one Starter Kit for ESP32-P4 Arduino V1.1 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_Arduino-V1.1.pdf)
-- **User Manual**: [User Manual (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual.pdf)
+- **User Manual V1.0**: [User Manual V1.0 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual.pdf)
+- **User Manual V1.1**: [User Manual V1.1 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual_V1.1.pdf)
 - **Arduino Lessons**: [Arduino Lessons](https://www.elecrow.com/download/product/SEE00804D/Arduino_Lessons_of_All-in-one_Starter_Kit_for_ESP32-P4.pdf)
 - **ESP32-P4 Datasheet**: [ESP32-P4 Datasheet](https://www.elecrow.com/download/product/SEE00804D/esp32-p4_datasheet_en.pdf)
 
