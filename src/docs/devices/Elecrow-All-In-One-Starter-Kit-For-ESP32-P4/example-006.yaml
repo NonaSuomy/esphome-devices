@@ -3,11 +3,11 @@ light:
     id: rgb_leds
     name: "RGB LEDs"
     chipset: WS2814
-    pin: 
+    pin:
       number: GPIO8
     num_leds: 1
     rgb_order: WRGB   # RGB or GRB
-    is_wrgb: true 
+    is_wrgb: true
     default_transition_length: 0s
 
 interval:

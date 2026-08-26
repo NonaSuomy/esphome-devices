@@ -25,7 +25,7 @@ automation:
       - service: notify.mobile_app
         data:
           message: "Motion detected in room"
-          
+
   - alias: "High Temperature Warning"
     trigger:
       - platform: numeric_state

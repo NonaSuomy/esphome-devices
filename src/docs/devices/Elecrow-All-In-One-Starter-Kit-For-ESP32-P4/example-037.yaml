@@ -110,12 +110,16 @@ script:
             lambda: 'return true;'
           then:
             - lambda: |-
-                for (auto *o : {out_41, out_45, out_46, out_14, out_11, out_10, out_09, out_53, out_54, out_15, out_07, out_08, out_06, out_05, out_47, out_48}) {
+                for (auto *o : {out_41, out_45, out_46, out_14, out_11, out_10,
+                                out_09, out_53, out_54, out_15, out_07, out_08,
+                                out_06, out_05, out_47, out_48}) {
                   o->turn_on();
                 }
             - delay: 500ms
             - lambda: |-
-                for (auto *o : {out_41, out_45, out_46, out_14, out_11, out_10, out_09, out_53, out_54, out_15, out_07, out_08, out_06, out_05, out_47, out_48}) {
+                for (auto *o : {out_41, out_45, out_46, out_14, out_11, out_10,
+                                out_09, out_53, out_54, out_15, out_07, out_08,
+                                out_06, out_05, out_47, out_48}) {
                   o->turn_off();
                 }
             - delay: 500ms

@@ -1,6 +1,6 @@
 external_components:
   - source: github://flax2000/esp_nrf24l01
-    components: [ nrf24 ]
+    components: [nrf24]
 
 spi:
   clk_pin: GPIO09

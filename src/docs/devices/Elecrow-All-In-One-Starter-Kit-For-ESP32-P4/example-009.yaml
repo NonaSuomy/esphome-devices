@@ -51,7 +51,7 @@ switch:
     id: display_updn
     internal: true
     restore_mode: RESTORE_DEFAULT_OFF
-  
+
   - platform: gpio
     pin: GPIO33
     name: "Display SHLR"

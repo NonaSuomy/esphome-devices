@@ -10,9 +10,9 @@ touchscreen:
     i2c_id: i2c_bus
     address: 0x5D  # GT911 backup address (IDF driver tries this first)
     reset_pin: GPIO40
-    interrupt_pin: 
+    interrupt_pin:
       number: GPIO41
-      mode: INPUT # If you use SPI ESP32_Hosted WiFi it will conflict with this interrupt which then you need this enabled.
+      mode: INPUT  # SPI ESP-Hosted Wi-Fi may conflict with this interrupt.
     transform:
       swap_xy: false
       mirror_x: false
@@ -22,7 +22,7 @@ touchscreen:
       x_max: 1024
       y_min: 0
       y_max: 600
-    update_interval: 50ms # If you use #mode: INPUT for SPI ESP32_Hosted WiFi you need to set this.
+    update_interval: 50ms  # Required when SPI ESP-Hosted Wi-Fi is enabled.
     on_touch:
       - lambda: |-
           ESP_LOGI("cal", "x=%d, y=%d, x_raw=%d, y_raw=%0d",
@@ -51,7 +51,7 @@ display:
     lane_bit_rate: 1000Mbps
     color_order: rgb
     #invert_colors: true
-    
+
     pclk_frequency: 51MHz
     dimensions:
       width: 1024
@@ -71,7 +71,7 @@ display:
       - [0x84, 0xA8] # DSI timing register, another porch/sync parameter
       - [0x85, 0xE3] # DSI timing register, likely horizontal active or blanking period
       - [0x86, 0x88] # DSI timing register, last of the timing chain parameters
-      - [0x11]       # MIPI DCS Sleep Out command (standard DCS command 0x11): wakes the display from sleep mode, after which the panel begins normal operation
+      - [0x11]       # MIPI DCS Sleep Out; wakes the panel for normal operation.
 
 output:
   - platform: ledc
