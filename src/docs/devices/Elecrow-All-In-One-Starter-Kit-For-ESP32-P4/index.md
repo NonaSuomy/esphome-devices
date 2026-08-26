@@ -1850,7 +1850,7 @@ board configuration; verify every GPIO assignment before using it.
 - **Schematic V1.1**: [All-in-one Starter Kit for ESP32-P4 Arduino V1.1 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_Arduino-V1.1.pdf)
 - **User Manual V1.0**: [User Manual V1.0 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual.pdf)
 - **User Manual V1.1**: [User Manual V1.1 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual_V1.1.pdf)
-- **Arduino Lessons**: [Arduino Lessons](https://www.elecrow.com/download/product/SEE00804D/Arduino_Lessons_of_All-in-one_Starter_Kit_for_ESP32-P4.pdf)
+- **Arduino lessons**: See the [User Manual V1.0 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual.pdf) and [User Manual V1.1 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_User_Manual_V1.1.pdf) for the lesson materials.
 - **ESP32-P4 Datasheet**: [ESP32-P4 Datasheet](https://www.elecrow.com/download/product/SEE00804D/esp32-p4_datasheet_en.pdf)
 
 ### Elecrow Community
