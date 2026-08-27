@@ -74,9 +74,9 @@ esp32:
       CONFIG_FATFS_LFN_STACK: "y"
 
       CONFIG_VFS_SUPPORT_IO: "y"
-      CONFIG_VFS_MAX_COUNT: "16" 
+      CONFIG_VFS_MAX_COUNT: "16"
       CONFIG_ESP_MAIN_TASK_STACK_SIZE: "16384"
-      #CONFIG_ESP_MAIN_TASK_STACK_SIZE: "65536" 
+      #CONFIG_ESP_MAIN_TASK_STACK_SIZE: "65536"
       CONFIG_ESP_TIMER_TASK_STACK_SIZE: "4096"
       #CONFIG_ESP_TIMER_TASK_STACK_SIZE: "8192"
       CONFIG_ESP_TASK_WDT_TIMEOUT_S: "60"
@@ -93,7 +93,7 @@ esp32:
       #CONFIG_HTTPD_MAX_REQ_HDR_LEN: "800"
       #CONFIG_HTTPD_WS_SUPPORT: "y"
   engineering_sample: true
-  
+
 safe_mode:
   disabled: true
 
@@ -127,7 +127,7 @@ external_components:
 
   - source: github://swoboda1337/esphome@esp32-hosted-spi
     components: [esp32_hosted]
-    
+
   - source:
       type: local
       path: components
@@ -136,8 +136,16 @@ external_components:
   - source:
       type: git
       url: https://github.com/youkorr/test2_esp_video_esphome
-      ref: main 
-    components: [esp_video, esp_cam_sensor, webdavbox3, storage, lvgl_camera_display, simple_video_player, network_camera, face_detection]
+      ref: main
+    components:
+      - esp_video
+      - esp_cam_sensor
+      - webdavbox3
+      - storage
+      - lvgl_camera_display
+      - simple_video_player
+      - network_camera
+      - face_detection
     refresh: always
 
 #  - source: github://guillempages/esphome@tm1637-brightness
@@ -170,7 +178,7 @@ online_image:
   - url: "http://home-assistant.local:8123/api/frigate/frigate/notifications/1775568754.477969-9focpa/snapshot.jpg"
     format: JPG
     id: cctv_img
-    byte_order: little_endian    
+    byte_order: little_endian
     type: RGB565
     resize: 1000x600
     #on_download_finished:
@@ -293,7 +301,7 @@ ethernet:
 #   cs_pin: GPIO14 #19 Wireless Module CS
 #   clk_pin: GPIO15 #18 Wireless Module CLK
 #   mosi_pin: GPIO7 # 20 Wireless Module MOSI
-#   miso_pin: GPIO9 # 21 Wireless Module MISO 
+#   miso_pin: GPIO9 # 21 Wireless Module MISO
 #   data_ready_pin: GPIO10 # 22 Wireless Module Ready
 #   handshake_pin: GPIO11 # 23 Wireless Module Handshake
 
@@ -350,7 +358,7 @@ ethernet:
 #           id: version_label
 #           text: "Update Available!"
 #           text_color: 0xFFFF00
-    
+
 # button:
 #   - platform: template
 #     name: "Update ESP32-C6 Firmware"
@@ -407,9 +415,10 @@ touchscreen:
     i2c_id: bsp2_bus
     address: 0x5D  # GT911 backup address (IDF driver tries this first)
     reset_pin: GPIO40
-    interrupt_pin: 
+    interrupt_pin:
       number: GPIO41
-      mode: INPUT # If you use SPI ESP32_Hosted WiFi it will conflict with this interrupt which then you need this enabled.
+      # SPI ESP32_Hosted WiFi may conflict with this interrupt.
+      mode: INPUT
     transform:
       swap_xy: false
       mirror_x: false
@@ -442,7 +451,7 @@ display:
     lane_bit_rate: 1000Mbps
     color_order: rgb
     #invert_colors: true
-    
+
     pclk_frequency: 51MHz
     dimensions:
       width: 1024
@@ -462,7 +471,8 @@ display:
       - [0x84, 0xA8] # DSI timing register, another porch/sync parameter
       - [0x85, 0xE3] # DSI timing register, likely horizontal active or blanking period
       - [0x86, 0x88] # DSI timing register, last of the timing chain parameters
-      - [0x11]       # MIPI DCS Sleep Out command (standard DCS command 0x11): wakes the display from sleep mode, after which the panel begins normal operation
+      # MIPI DCS Sleep Out command; wakes the panel for normal operation.
+      - [0x11]
 
 esp_video:
   i2c_id: bsp_bus
@@ -477,7 +487,7 @@ esp_cam_sensor:
   i2c_id: bsp_bus
   sensor_type: SC2336         #"sensor_type" au lieu de "sensor"
   resolution: "1280x720"          # , 1024x600 ,vga
-  pixel_format: "RGB565"      # Zero-copy 
+  pixel_format: "RGB565"      # Zero-copy
   framerate: 30
   jpeg_quality: 15
   mirror_x: false    # Flip horizontal (hardware)
@@ -491,7 +501,7 @@ lvgl_camera_display:
   canvas_id: camera_canvas
   update_interval: 33ms
   #face_detection_id: face_detect
-  #yolo11_detection_id: yolo_detect 
+  #yolo11_detection_id: yolo_detect
 
 output:
   - platform: ledc
@@ -519,7 +529,7 @@ light:
     name: "Display Backlight"
     id: display_backlight
     restore_mode: ALWAYS_ON
-    
+
   # Lesson 4 WS2814A LED
   - platform: esp32_rmt_led_strip
     id: rgb_leds
@@ -565,7 +575,7 @@ switch:
     optimistic: true
     turn_on_action:
       - esp_cam_sensor.start_streaming:
-          id: sc2336_cam 
+          id: sc2336_cam
       - lambda: |-
           id(camera_display).set_enabled(true);
     turn_off_action:
@@ -625,7 +635,7 @@ lvgl:
       #- light.turn_off:
       #    id: display_backlight
       #    transition_length: 5s
-  bottom_layer: 
+  bottom_layer:
     bg_image_src: background_main
     bg_color: color_back
   #bg_opa: TRANSP
@@ -656,7 +666,7 @@ lvgl:
         -
           color: 0xFF0000
           position: 255
-  
+
 # --- GLOBAL STYLES ---
   style_definitions:
     - id: main_bg_style
@@ -688,7 +698,7 @@ lvgl:
       pad_all: 0
       text_color: 0x00D4FF
       text_font: roboto20
-      
+
     - id: matrix_btn_style
       bg_opa: 0%
       border_width: 1
@@ -740,11 +750,11 @@ lvgl:
       checked:
         bg_color: 0xC0C0C0
 
-        
+
   top_layer:
     text_font: helv20
     widgets:
-    - buttonmatrix:
+      - buttonmatrix:
         width: 100%
         height: 10%
         y: 17
@@ -755,23 +765,23 @@ lvgl:
           styles: header_footer
         rows:
           - buttons:
-            - id: top_prev
-              text: "${menu_left}"
-              width: 1
-              on_click:
-                lvgl.page.previous:
-            - id: top_home
-              text: "${home_icon}"
-              width: 1
-              on_click:
-                then:
-                  lvgl.page.show: main_page
-            - id: top_next
-              text: "${menu_right}"
-              width: 1
-              on_click:
-                lvgl.page.next:
-        
+              - id: top_prev
+                text: "${menu_left}"
+                width: 1
+                on_click:
+                  lvgl.page.previous:
+              - id: top_home
+                text: "${home_icon}"
+                width: 1
+                on_click:
+                  then:
+                    lvgl.page.show: main_page
+              - id: top_next
+                text: "${menu_right}"
+                width: 1
+                on_click:
+                  lvgl.page.next:
+
 # --- PAGE CONFIGURATION ---
   pages:
     - id: main_page
@@ -889,7 +899,13 @@ lvgl:
                   height: 80
                   styles: card_style
                   widgets:
-                    - label: {id: voice_text, text: "Listening...", align: CENTER, styles: hud_text, long_mode: WRAP, width: 100%}
+                    - label:
+                        id: voice_text
+                        text: "Listening..."
+                        align: CENTER
+                        styles: hud_text
+                        long_mode: WRAP
+                        width: 100%
               # --- POWER / RELAY CONTROL ---
               - obj:
                   x: -8
@@ -939,7 +955,7 @@ lvgl:
                           id: servo_angle_label
                           text: !lambda 'return str_sprintf("%d°", x);'
                   widgets:
-                  - label:
+                    - label:
                       id: servo_angle_label
                       text: "0°"
                       text_font: roboto20
@@ -1137,7 +1153,13 @@ lvgl:
             styles: transparent_card
             widgets:
               - label: {text: "ENVIRONMENT", y: -5, align: TOP_MID, styles: hud_text}
-              - label: {id: temperature_label, text: "--.-°C", y: 40, align: TOP_MID, text_font: space40, styles: hud_text}
+              - label:
+                  id: temperature_label
+                  text: "--.-°C"
+                  y: 40
+                  align: TOP_MID
+                  text_font: space40
+                  styles: hud_text
               - label: {id: humidity_label, text: "--.-%", y: 90, align: TOP_MID, styles: hud_text}
               - label: {id: light_label, text: "LIGHT: -- lx", y: 120, align: TOP_MID, styles: hud_text}
               - label: {id: distance_label, text: "DIST: --- cm", y: 145, align: TOP_MID, styles: hud_text}
@@ -1182,15 +1204,15 @@ lvgl:
             border_width: 2
             styles: transparent_card
             widgets:
-              - obj: {id: led_red,    width: 15, height: 15, radius: 10, bg_color: 0x440000, x: 0,  y: 0}
+              - obj: {id: led_red, width: 15, height: 15, radius: 10, bg_color: 0x440000, x: 0, y: 0}
               - obj: {id: led_yellow, width: 15, height: 15, radius: 10, bg_color: 0x444400, x: 20, y: 0}
               - label:
                   text: INPUT MATRIX
                   y: -5
                   align: TOP_MID
                   styles: hud_text
-              - obj: {id: led_green,  width: 15, height: 15, radius: 10, bg_color: 0x004400, x: 170, y: 0}
-              - obj: {id: led_blue,   width: 15, height: 15, radius: 10, bg_color: 0x000044, x: 190, y: 0}
+              - obj: {id: led_green, width: 15, height: 15, radius: 10, bg_color: 0x004400, x: 170, y: 0}
+              - obj: {id: led_blue, width: 15, height: 15, radius: 10, bg_color: 0x000044, x: 190, y: 0}
               - buttonmatrix:
                   id: adc_btns_view
                   width: 210
@@ -1538,10 +1560,10 @@ lvgl:
             bg_opa: 0%
             border_width: 0
             widgets:
-              - label: {id: gp_dup,   text: "\U000F005D", align: TOP_MID,    text_color: 0x444444, text_font: roboto20}
+              - label: {id: gp_dup, text: "\U000F005D", align: TOP_MID, text_color: 0x444444, text_font: roboto20}
               - label: {id: gp_ddown, text: "\U000F0045", align: BOTTOM_MID, text_color: 0x444444, text_font: roboto20}
-              - label: {id: gp_dleft, text: "\U000F004D", align: LEFT_MID,   text_color: 0x444444, text_font: roboto20}
-              - label: {id: gp_dright,text: "\U000F0054", align: RIGHT_MID,  text_color: 0x444444, text_font: roboto20}
+              - label: {id: gp_dleft, text: "\U000F004D", align: LEFT_MID, text_color: 0x444444, text_font: roboto20}
+              - label: {id: gp_dright, text: "\U000F0054", align: RIGHT_MID, text_color: 0x444444, text_font: roboto20}
         # FACE BUTTONS
         - obj:
             x: 820
@@ -1551,19 +1573,19 @@ lvgl:
             bg_opa: 0%
             border_width: 0
             widgets:
-              - label: {id: gp_y, text: "Y", align: TOP_MID,    text_color: 0x444444, text_font: roboto20}
+              - label: {id: gp_y, text: "Y", align: TOP_MID, text_color: 0x444444, text_font: roboto20}
               - label: {id: gp_a, text: "A", align: BOTTOM_MID, text_color: 0x444444, text_font: roboto20}
-              - label: {id: gp_x, text: "X", align: LEFT_MID,   text_color: 0x444444, text_font: roboto20}
-              - label: {id: gp_b, text: "B", align: RIGHT_MID,  text_color: 0x444444, text_font: roboto20}
+              - label: {id: gp_x, text: "X", align: LEFT_MID, text_color: 0x444444, text_font: roboto20}
+              - label: {id: gp_b, text: "B", align: RIGHT_MID, text_color: 0x444444, text_font: roboto20}
         # SHOULDER BUTTONS
-        - label: {id: gp_l,  text: "LB",  x: 60,  y: 80,  text_color: 0x444444, styles: hud_text}
-        - label: {id: gp_r,  text: "RB",  x: 900, y: 80,  text_color: 0x444444, styles: hud_text}
-        - label: {id: gp_zl, text: "LT",  x: 60,  y: 55,  text_color: 0x444444, styles: hud_text}
-        - label: {id: gp_zr, text: "RT",  x: 900, y: 55,  text_color: 0x444444, styles: hud_text}
+        - label: {id: gp_l, text: "LB", x: 60, y: 80, text_color: 0x444444, styles: hud_text}
+        - label: {id: gp_r, text: "RB", x: 900, y: 80, text_color: 0x444444, styles: hud_text}
+        - label: {id: gp_zl, text: "LT", x: 60, y: 55, text_color: 0x444444, styles: hud_text}
+        - label: {id: gp_zr, text: "RT", x: 900, y: 55, text_color: 0x444444, styles: hud_text}
         # CENTER BUTTONS
-        - label: {id: gp_minus,   text: "\U000F0374", x: 420, y: 200, text_color: 0x444444, text_font: roboto20}
-        - label: {id: gp_plus,    text: "\U000F0415", x: 560, y: 200, text_color: 0x444444, text_font: roboto20}
-        - label: {id: gp_home,    text: "\U000F02DC", x: 490, y: 170, text_color: 0x444444, text_font: roboto20}
+        - label: {id: gp_minus, text: "\U000F0374", x: 420, y: 200, text_color: 0x444444, text_font: roboto20}
+        - label: {id: gp_plus, text: "\U000F0415", x: 560, y: 200, text_color: 0x444444, text_font: roboto20}
+        - label: {id: gp_home, text: "\U000F02DC", x: 490, y: 170, text_color: 0x444444, text_font: roboto20}
         # STICK BUTTONS
         - label: {id: gp_l3, text: "L3", x: 200, y: 310, text_color: 0x444444, styles: hud_text}
         - label: {id: gp_r3, text: "R3", x: 760, y: 310, text_color: 0x444444, styles: hud_text}
@@ -1693,7 +1715,7 @@ sensor:
       - sliding_window_moving_average:
           window_size: 5
           send_every: 1
-    on_value: 
+    on_value:
       then:
         - lvgl.label.update:
             id: distance_label
@@ -1744,7 +1766,7 @@ sensor:
     humidity:
       name: "Humidity"
       id: sensor_hum
-      on_value: 
+      on_value:
         then:
           - lvgl.label.update:
               id: humidity_label
@@ -1838,7 +1860,7 @@ sensor:
             // 1. IDLE CHECK (HIGH VOLTAGE)
             // Since your log shows 3.286V when let go, anything above 3.15V is "OFF"
             if (x > 3.15) {
-              btn = -1; 
+              btn = -1;
             }
             // 2. BUTTON LADDER (Based on your calibrated logs)
             else if (x < 1.48) btn = 6; // DOWN/LEFT (~1.44V)
@@ -1877,7 +1899,7 @@ sensor:
                 id(rgb_leds).turn_on()
                   .set_red(r).set_green(g).set_blue(b).set_white(w)
                   .perform();
-                
+
                 ESP_LOGI("button_adc", "MATCH: btn=%d (%.3fV)", btn, x);
               }
               // Force redraw to ensure "Checked" state is visually removed
@@ -1900,7 +1922,7 @@ sensor:
               if (val < 0) return 0;
               if (val > 100) return 100;
               return (int)val;
-        
+
         # UI Warning Label Logic
         - if:
             condition: {lambda: "return x > 1.5;"}
@@ -2275,7 +2297,7 @@ font:
           "\U000F0045", # mdi-arrow-down
           "\U000F0054", # mdi-arrow-right
           "\U000F0741", # mdi-gesture-tap
-          ]
+        ]
   - file: "fonts/roboto.ttf"
     id: roboto10
     size: 10
@@ -2333,7 +2355,7 @@ font:
           "\U000F0045", # mdi-arrow-down
           "\U000F0054", # mdi-arrow-right
           "\U000F0741", # mdi-gesture-tap
-          ]
+        ]
   - file: "fonts/Helvetica.ttf"
     id: helv20
     bpp: 2
@@ -2391,7 +2413,7 @@ font:
           "\U000F0045", # mdi-arrow-down
           "\U000F0054", # mdi-arrow-right
           "\U000F0741", # mdi-gesture-tap
-          ]
+        ]
 
   - file: "fonts/Helvetica.ttf"
     id: helv30
@@ -2450,7 +2472,7 @@ font:
           "\U000F0045", # mdi-arrow-down
           "\U000F0054", # mdi-arrow-right
           "\U000F0741", # mdi-gesture-tap
-          ]
+        ]
 
   - file: "fonts/roboto-condensed.ttf"
     id: roboto64
@@ -2528,7 +2550,7 @@ sendspin:
   #   - file: images/logo-text-trans.svg
   #     resize: 100x100
   #     id: alpha_binary
-      
+
   # grayscale:
   #   alpha_channel:
   #     - file: images/bluemax.png
@@ -2616,10 +2638,10 @@ interval:
             if (mode & 1) { // WHITE mode
               w = (uint8_t)(color.get_white() * 255);
             }
-            lvgl_set_bg_color_rgb(id(led_red),    r, 0, 0, LV_PART_MAIN);
-            lvgl_set_bg_color_rgb(id(led_yellow),  w, w, 0, LV_PART_MAIN);
-            lvgl_set_bg_color_rgb(id(led_green),   0, g, 0, LV_PART_MAIN);
-            lvgl_set_bg_color_rgb(id(led_blue),    0, 0, b, LV_PART_MAIN);
+            lvgl_set_bg_color_rgb(id(led_red), r, 0, 0, LV_PART_MAIN);
+            lvgl_set_bg_color_rgb(id(led_yellow), w, w, 0, LV_PART_MAIN);
+            lvgl_set_bg_color_rgb(id(led_green), 0, g, 0, LV_PART_MAIN);
+            lvgl_set_bg_color_rgb(id(led_blue), 0, 0, b, LV_PART_MAIN);
           }
 
 # text_sensor:
