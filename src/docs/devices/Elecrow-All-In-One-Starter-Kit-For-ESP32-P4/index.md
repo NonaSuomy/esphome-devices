@@ -720,6 +720,12 @@ Manual Lesson 2
 | GPIO45 | SDA (0x30) |
 | GPIO46 | SCL (0x30) |
 
+This example uses the SC2336 camera component from the external project used
+by the tested AIO configuration. It is not part of a stable ESPHome release.
+
+```yaml file=example-057.yaml
+```
+
 [Back to top](#elecrow-esp32-p4-all-in-one-starter-kit)
 
 ### Additional Information
