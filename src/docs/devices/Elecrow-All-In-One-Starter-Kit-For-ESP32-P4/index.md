@@ -1648,10 +1648,12 @@ the bootloader during flashing.
 ```yaml file=example-053.yaml
 ```
 
-### Example Configuration (GPIOs Require Verification)
+### Complete AIO Project Configuration (Tested)
 
-This is an example configuration for reference. It is not a complete tested
-board configuration; verify every GPIO assignment before using it.
+This is the complete project configuration used to test the Elecrow AIO
+features. It is board-specific, but it is not a portable baseline: it depends
+on custom components and development branches listed in the YAML. Replace all
+`REPLACE_ME` values and review the external component sources before building.
 
 ```yaml file=example-054.yaml
 ```
