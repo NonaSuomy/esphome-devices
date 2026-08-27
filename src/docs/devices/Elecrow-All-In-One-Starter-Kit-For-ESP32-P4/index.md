@@ -504,6 +504,8 @@ continuous-rotation speed.
 
 #### 8. Accelerometer & Gyro (STMicroelectronics LSM6DS3TR-C IMU 6-DoF) U6
 
+![Accelerometer & Gyro (LSM6DS3TR-C)](elecrow-esp32-p4-aio-lsm6ds3tr-c-6dof.png)
+
 ![Accelerometer & Gyro (LSM6DS3TR-C)](./8-accelerometer-and-gyro-p1.svg)
 
 | GPIO | Label |
@@ -524,6 +526,8 @@ Manual Lesson 13
 ```
 
 #### 9. Hall Effect Sensor (Hallwee HAL248) U7
+
+![Hall Effect Sensor (HAL248)](elecrow-esp32-p4-aio-hallwee-hal248.png)
 
 ![Hall Effect Sensor (HAL248)](./9-hall-sensor-p1.svg)
 
@@ -546,6 +550,8 @@ Manual Lesson 5
 ```
 
 #### 10. ADC Buttons Custom Key Ladder k5 k6 k7 k8
+
+![ADC buttons](elecrow-esp32-p4-aio-buttons.png)
 
 ![ADC Buttons](./10-custom-key-p1.svg)
 
