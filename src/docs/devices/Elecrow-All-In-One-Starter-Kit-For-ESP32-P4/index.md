@@ -46,7 +46,7 @@ The board includes 16 pre-integrated sensor modules:
 
 1. [Ultrasonic Sensor (HC-SR04)](#1-ultrasonic-distance-sensor-hc-sr04-j14)
 2. [Light/Luminosity Sensor (BH1750)](#2-light-luminosity-sensor-bh1750)
-3. [RGBW Red Yellow Green Blue LEDs WS2814A](#3-rgbw-red-yellow-green-blue-leds-ws2814a-u14)
+3. [RGBW Red Yellow Green Blue LED WS2814A](#3-rgbw-red-yellow-green-blue-led-ws2814a-u14)
 4. [Temperature & Humidity Sensor (DHT20)](#4-temperature--humidity-sensor-dht20-u5)
 5. [DSI Display (EK79007)](#5-mipi-dsi-ek79007-j17)
 6. [PIR Motion Sensor (Silvan BIS0001)](#6-pir-motion-sensor-silvan-bis0001-j101)
@@ -93,7 +93,7 @@ Each lesson below is from the manual and corresponds to a conversion of the ESP-
 11. [Lesson 11 Temperature & Humidity Sensor](#lesson-temperature--humidity-dht20)
 12. [Lesson 12 Light Sensor](#lesson-light-sensor-bh1750)
 13. [Lesson 13 Accelerometer & Gyro (IMU 6DoF)](#lesson-imu-6-dof-lsm6ds3tr-c)
-14. [Lesson 14 RGB LED](#lesson-rgb-led-ws2814a)
+14. [Lesson 14 RGBW LED](#lesson-rgbw-led-ws2814a)
 15. [Lesson 15 ADC Buttons](#lesson-adc-buttons)
 16. [Lesson 16 Gas Sensor](#lesson-gas-sensor-mq2)
 17. [Lesson 17 Microphone](#lesson-microphone-i2s)
