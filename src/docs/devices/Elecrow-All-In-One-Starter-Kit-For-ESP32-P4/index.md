@@ -1138,8 +1138,7 @@ GPIO11    GPIO23
 
 The module-side H2 pinout below is taken from the supplied H2 module image.
 The module GPIO names are not ESP32-P4 GPIO numbers. The host-side AIO slot
-signals are shown separately and must be verified against the H2 module
-orientation and adapter wiring before power is applied.
+signals are shown separately using the confirmed J13/J16 header mapping.
 
 ##### Left Pins
 
@@ -1149,9 +1148,9 @@ orientation and adapter wiring before power is applied.
 | GPIO01 | Left Pin 02 | GPIO09 | Module GPIO |
 | GPIO00 | Left Pin 03 | GPIO10 | Module GPIO |
 | GPIO02 | Left Pin 04 | GPIO11 | Module GPIO |
-| GPIO22 | Left Pin 05 | **Verify** | Module GPIO; host connection unverified |
-| GPIO10 | Left Pin 06 | **Verify** | Module GPIO; host connection unverified |
-| GPIO11 | Left Pin 07 | **Verify** | Module GPIO; host connection unverified |
+| GPIO22 | Left Pin 05 | VDD 3V3 | Module GPIO; header pin is 3V3 |
+| GPIO10 | Left Pin 06 | GND | Module GPIO; header pin is ground |
+| GPIO11 | Left Pin 07 | VDD 5V | Module GPIO; header pin is 5V |
 
 ##### Right Pins
 
@@ -1161,9 +1160,9 @@ orientation and adapter wiring before power is applied.
 | GPIO12 | Right Pin 02 | GPIO07 | Module GPIO; host mapping unverified |
 | GPIO13 | Right Pin 03 | GPIO02 | Module GPIO; host mapping unverified |
 | GPIO14 | Right Pin 04 | N/C | Module GPIO; host mapping unverified |
-| 3V3 | Right Pin 05 | **Verify** | Module power; host connection unverified |
-| GND | Right Pin 06 | **Verify** | Module ground; host connection unverified |
-| NC | Right Pin 07 | **Verify** | Not connected on module |
+| 3V3 | Right Pin 05 | GPIO15 | Module power label; J16 pin 5 is GPIO15 |
+| GND | Right Pin 06 | GPIO14 | Module ground label; J16 pin 6 is GPIO14 |
+| NC | Right Pin 07 | N/C | Not connected on module or header |
 
 #### ESP32-H2 (Bluetooth, Thread, Zigbee)
 
@@ -1191,43 +1190,42 @@ orientation and adapter wiring before power is applied.
 
 The pinout below is the **module-side** pinout shown on the supplied LoRa
 module image. These are module connector signals, not ESP32-P4 GPIO numbers.
-The adapter/header wiring between the module and the ESP32-P4 is separate and
-must be verified before using the host-side GPIO assignments.
+The ESP32-P4 column uses the confirmed J13/J16 adapter-header mapping.
 
 ##### Left Pins
 
 | Module signal / GPIO | Module pin | ESP32-P4 GPIO | Signal role |
 | :--- | :--- | :--- | :--- |
-| NRESET | Left Pin 01 | **Verify** | LoRa reset input |
-| NC | Left Pin 02 | **Verify** | Not connected on module |
-| NC | Left Pin 03 | **Verify** | Not connected on module |
-| DIO2 | Left Pin 04 | **Verify** | LoRa digital I/O |
-| BUSY | Left Pin 05 | **Verify** | LoRa busy output |
-| NSS | Left Pin 06 | **Verify** | LoRa chip select |
-| DIO3 | Left Pin 07 | **Verify** | LoRa digital I/O |
+| NRESET | Left Pin 01 | GPIO54 | LoRa reset input |
+| NC | Left Pin 02 | N/C | Not connected on module |
+| NC | Left Pin 03 | N/C | Not connected on module |
+| DIO2 | Left Pin 04 | N/C | LoRa digital I/O; not assigned in the example |
+| BUSY | Left Pin 05 | GPIO15 | LoRa busy output |
+| NSS | Left Pin 06 | GPIO14 | LoRa chip select |
+| DIO3 | Left Pin 07 | N/C | LoRa digital I/O; not assigned in the example |
 
 ##### Right Pins
 
 | Module signal / GPIO | Module pin | ESP32-P4 GPIO | Signal role |
 | :--- | :--- | :--- | :--- |
-| DIO1 | Right Pin 01 | **Verify** | LoRa digital I/O |
-| SCK | Right Pin 02 | **Verify** | SPI clock |
-| MISO | Right Pin 03 | **Verify** | SPI controller input |
-| MOSI | Right Pin 04 | **Verify** | SPI controller output |
-| 3V3 | Right Pin 05 | **Verify** | Module power input |
-| GND | Right Pin 06 | **Verify** | Module ground |
-| NC | Right Pin 07 | **Verify** | Not connected on module |
+| DIO1 | Right Pin 01 | GPIO53 | LoRa digital I/O |
+| SCK | Right Pin 02 | GPIO09 | SPI clock |
+| MISO | Right Pin 03 | GPIO10 | SPI controller input |
+| MOSI | Right Pin 04 | GPIO11 | SPI controller output |
+| 3V3 | Right Pin 05 | VDD 3V3 | Module power input |
+| GND | Right Pin 06 | GND | Module ground |
+| NC | Right Pin 07 | N/C | Not connected on module or header |
 
-##### Basic Setup (AIO Expansion Header — host wiring must be verified)
+##### Basic Setup (AIO Expansion Header)
 
-This is an example of the LoRa component configuration only. Do not use the
-GPIO assignments below until the AIO adapter wiring has been verified
-against the module-side pinout above.
+This is an example of the LoRa component configuration using the confirmed
+AIO host GPIO assignments shown above. The module-side labels remain the
+module's own pin names.
 
 ```yaml file=example-041.yaml
 ```
 
-#### YAML Example (AIO Expansion Header — host wiring must be verified)
+#### YAML Example (AIO Expansion Header)
 
 ```yaml file=example-042.yaml
 ```
@@ -1253,40 +1251,38 @@ against the module-side pinout above.
 
 The pinout below is the **module-side** pinout shown on the supplied nRF2401
 module image. The GPIO labels are GPIOs of the module's onboard controller,
-not ESP32-P4 GPIOs. The adapter/header wiring between these module pins and
-the ESP32-P4 is not established by the image, so the host-side column is
-marked **Verify** rather than presenting the module GPIO numbers as P4 pins.
+not ESP32-P4 GPIOs. The ESP32-P4 column uses the confirmed J13/J16
+adapter-header mapping; it does not rename the module GPIOs.
 
 ##### Left Pins
 
 | Module signal / GPIO | Module pin | ESP32-P4 GPIO | Signal role |
 | :--- | :--- | :--- | :--- |
-| U1TXD | Left Pin 01 | **Verify** | Module UART TX; radio-side label CSN |
-| GPIO23 | Left Pin 02 | **Verify** | Module GPIO; radio-side label NC |
-| GPIO22 | Left Pin 03 | **Verify** | Module GPIO; radio-side label NC |
-| GPIO21 | Left Pin 04 | **Verify** | Module GPIO; radio-side label NC |
-| GPIO20 | Left Pin 05 | **Verify** | Module GPIO; radio-side label IRQ |
-| GPIO19 | Left Pin 06 | **Verify** | Module GPIO; radio-side label NC |
-| GPIO18 | Left Pin 07 | **Verify** | Module GPIO; radio-side label NC |
+| U1TXD | Left Pin 01 | GPIO54 | Module UART TX; radio-side label CSN |
+| GPIO23 | Left Pin 02 | N/C | Module GPIO; radio-side label NC |
+| GPIO22 | Left Pin 03 | N/C | Module GPIO; radio-side label NC |
+| GPIO21 | Left Pin 04 | N/C | Module GPIO; radio-side label NC |
+| GPIO20 | Left Pin 05 | GPIO15 | Module GPIO; radio-side label IRQ |
+| GPIO19 | Left Pin 06 | GND | Module GPIO; radio-side label NC |
+| GPIO18 | Left Pin 07 | N/C | Module GPIO; radio-side label NC |
 
 ##### Right Pins
 
 | Module signal / GPIO | Module pin | ESP32-P4 GPIO | Signal role |
 | :--- | :--- | :--- | :--- |
-| U1RXD | Right Pin 01 | **Verify** | Module UART RX; radio-side label CE |
-| GPIO0 | Right Pin 02 | **Verify** | Module GPIO; radio-side label SCK |
-| GPIO1 | Right Pin 03 | **Verify** | Module GPIO; radio-side label MISO |
-| GPIO2 | Right Pin 04 | **Verify** | Module GPIO; radio-side label MOSI |
-| 3V3 | Right Pin 05 | **Verify** | Module power input |
-| GND | Right Pin 06 | **Verify** | Module ground |
-| NC | Right Pin 07 | **Verify** | Not connected on module |
+| U1RXD | Right Pin 01 | GPIO53 | Module UART RX; radio-side label CE |
+| GPIO0 | Right Pin 02 | GPIO09 | Module GPIO; radio-side label SCK |
+| GPIO1 | Right Pin 03 | GPIO10 | Module GPIO; radio-side label MISO |
+| GPIO2 | Right Pin 04 | GPIO11 | Module GPIO; radio-side label MOSI |
+| 3V3 | Right Pin 05 | VDD 3V3 | Module power input |
+| GND | Right Pin 06 | GND | Module ground |
+| NC | Right Pin 07 | N/C | Not connected on module or header |
 
-#### YAML Example (AIO Expansion Header — host wiring must be verified)
+#### YAML Example (AIO Expansion Header)
 
-This is an example of the external component configuration only. Do not use
-the GPIO assignments below until the AIO adapter wiring has been verified
-against the module-side pinout above; the supplied module image does not
-identify ESP32-P4 host GPIOs.
+This is an example of the external component configuration using the
+confirmed AIO host GPIO assignments shown above. The module GPIO labels are
+module-side names and are not ESP32-P4 GPIO numbers.
 
 > **Experimental external component:** the nRF24 component is hosted outside
 > ESPHome and is not pinned to a release or commit. Verify its current schema
@@ -1322,32 +1318,31 @@ Wi-Fi HaLow serves as a specialized wireless protocol designed specifically for 
 
 The pinout below is the **module-side** pinout shown on the supplied HaLow
 module image. These are module connector signals, not ESP32-P4 GPIO numbers.
-The adapter/header wiring between the module and the ESP32-P4 is separate and
-must be verified before assigning host-side GPIOs.
+The ESP32-P4 column uses the confirmed J13/J16 adapter-header mapping.
 
 ##### Left Pins
 
 | Module signal / GPIO | Module pin | ESP32-P4 GPIO | Signal role |
 | :--- | :--- | :--- | :--- |
-| INT | Left Pin 01 | **Verify** | Module interrupt output |
-| NC | Left Pin 02 | **Verify** | Not connected on module |
-| NC | Left Pin 03 | **Verify** | Not connected on module |
-| BUSY | Left Pin 04 | **Verify** | Module busy output |
-| RESET_N | Left Pin 05 | **Verify** | Module reset input |
-| WAKEUP_IN | Left Pin 06 | **Verify** | Module wake-up input |
-| NC | Left Pin 07 | **Verify** | Not connected on module |
+| INT | Left Pin 01 | GPIO53 | Module interrupt output |
+| NC | Left Pin 02 | GPIO09 | Not connected on module |
+| NC | Left Pin 03 | GPIO10 | Not connected on module |
+| BUSY | Left Pin 04 | GPIO11 | Module busy output |
+| RESET_N | Left Pin 05 | VDD 3V3 | Module reset input; header pin is 3V3 |
+| WAKEUP_IN | Left Pin 06 | GND | Module wake-up input; header pin is ground |
+| NC | Left Pin 07 | VDD 5V | Not connected on module; header pin is 5V |
 
 ##### Right Pins
 
 | Module signal / GPIO | Module pin | ESP32-P4 GPIO | Signal role |
 | :--- | :--- | :--- | :--- |
-| CS | Right Pin 01 | **Verify** | SPI chip select |
-| CLK | Right Pin 02 | **Verify** | SPI clock |
-| MISO | Right Pin 03 | **Verify** | SPI controller input |
-| MOSI | Right Pin 04 | **Verify** | SPI controller output |
-| 3V3 | Right Pin 05 | **Verify** | Module power input |
-| GND | Right Pin 06 | **Verify** | Module ground |
-| 5V | Right Pin 07 | **Verify** | Module supply input |
+| CS | Right Pin 01 | GPIO54 | SPI chip select |
+| CLK | Right Pin 02 | GPIO07 | SPI clock |
+| MISO | Right Pin 03 | GPIO02 | SPI controller input |
+| MOSI | Right Pin 04 | N/C | SPI controller output; header pin is N/C |
+| 3V3 | Right Pin 05 | GPIO15 | Module power input; header pin is GPIO15 |
+| GND | Right Pin 06 | GPIO14 | Module ground; header pin is GPIO14 |
+| 5V | Right Pin 07 | N/C | Module supply input; header pin is N/C |
 
 #### YAML Example
 
@@ -1464,7 +1459,7 @@ installing the module.
 | PB2 | Left Pin 04 | GPIO06 | IO6_W_MOSI / M55 GPIO2 |
 | VDD 3V3 | Left Pin 05 | VDD 3V3 | Power 3V3 |
 | GND | Left Pin 06 | GND | GROUND |
-| **Verify** | Left Pin 07 | **Verify** | Connector signal not identified in the supplied schematic |
+| N/C | Left Pin 07 | N/C | Connector signal not identified in the supplied schematic |
 
 ##### Right Pins
 
@@ -1473,10 +1468,10 @@ installing the module.
 | PB1 | Right Pin 01 | GPIO19 | IO19_RX_IRQ / M55 GPIO1 |
 | PB5 | Right Pin 02 | GPIO16 | IO16_SCL / M55 GPIO5 |
 | PB6 | Right Pin 03 | GPIO15 | IO15_SDA / M55 GPIO6 |
-| PB7 | Right Pin 04 | **Verify** | Host net not identified in the supplied schematic |
+| PB7 | Right Pin 04 | N/C | Host net is unconnected in the supplied schematic |
 | PB9 | Right Pin 05 | GPIO02 | IO2_W_CS / M55 GPIO9 |
 | RESET | Right Pin 06 | GPIO00 | IO0_BOOT_BUSY / M55 reset |
-| PB8 | Right Pin 07 | **Verify** | Host net not identified in the supplied schematic |
+| PB8 | Right Pin 07 | N/C | Host net is unconnected in the supplied schematic |
 
 #### YAML Example
 
