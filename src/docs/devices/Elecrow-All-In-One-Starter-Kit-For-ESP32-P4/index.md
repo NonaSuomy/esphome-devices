@@ -292,7 +292,7 @@ Manual Lesson 12
 ```yaml file=example-004.yaml
 ```
 
-#### 3. RGBW Red Yellow Green Blue LEDs WS2814A U14
+#### 3. RGBW Red Yellow Green Blue LED WS2814A U14
 
 [ESPHome Docs - LED Strip](https://esphome.io/components/light/esp32_rmt_led_strip/)
 
@@ -307,11 +307,12 @@ Manual Lesson 12
 ```yaml file=example-005.yaml
 ```
 
-### Lesson: RGB LED (WS2814A)
+### Lesson: RGBW LED (WS2814A)
 
 Manual Lesson 14
 
-**Description**: Control RGB LEDs cycling through colors (Red, Yellow, Green, Blue) every second.
+**Description**: Control the single RGBW LED, cycling through red, white, green,
+and blue every second.
 
 ```yaml file=example-006.yaml
 ```
