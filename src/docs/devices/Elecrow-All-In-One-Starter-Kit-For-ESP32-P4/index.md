@@ -7,37 +7,7 @@ board: esp32
 difficulty: 2
 ---
 
-<!-- markdownlint-disable MD013 MD024 MD025 MD033 -->
-
-import Svg10CustomKeyP1Svg from './10-custom-key-p1.svg';
-import Svg11TouchSensorP1Svg from './11-touch-sensor-p1.svg';
-import Svg12MicP1Svg from './12-mic-p1.svg';
-import Svg13AudioInterfaceP1Svg from './13-audio-interface-p1.svg';
-import Svg14GasMq2P1Svg from './14-gas-mq-2-p1.svg';
-import Svg15RelayP1Svg from './15-relay-p1.svg';
-import Svg16CsiInterfaceP1Svg from './16-csi-interface-p1.svg';
-import Svg2LightSensorP1Svg from './2-light-sensor-p1.svg';
-import Svg3LedP1Svg from './3-led-p1.svg';
-import Svg4TemperatureHumidityP1Svg from './4-temperature-humidity-p1.svg';
-import Svg5DsiInterfaceP1Svg from './5-dsi-interface-p1.svg';
-import Svg6PirP1Svg from './6-pir-p1.svg';
-import Svg7ServoMotorP1Svg from './7-servo-motor-p1.svg';
-import Svg8AccelerometerAndGyroP1Svg from './8-accelerometer-and-gyro-p1.svg';
-import Svg9HallSensorP1Svg from './9-hall-sensor-p1.svg';
-import ExtraEsp32P4P1Svg from './extra-esp32-p4-p1.svg';
-import ExtraI2CHeaderP1Svg from './extra-i2c-header-p1.svg';
-import ExtraIoLedP1Svg from './extra-io-led-p1.svg';
-import ExtraPhyP1Svg from './extra-phy-p1.svg';
-import ExtraPowerP1Svg from './extra-power-p1.svg';
-import ExtraSdcardSlotP1Svg from './extra-sdcard-slot-p1.svg';
-import ExtraUartHeaderP1Svg from './extra-uart-header-p1.svg';
-import ExtraUsbTypeCX2AndTypeAP1Svg from './extra-usb-type-c-x2-and-type-a-p1.svg';
-import ExtraWirelessModuleP1Svg from './extra-wireless-module-p1.svg';
-import ExtraWirelessModuleC6P1Svg from './Extra_Wireless_Module_C6_p1.svg';
-import ExtraWirelessModuleC6Svg from './Extra_Wireless_Module_C6.svg';
-import UltrasonicSvg from './1-ultrasonic-sensor-p1.svg';
-
-<a id="readme-top"></a>
+<!-- markdownlint-disable MD013 MD024 MD025 -->
 
 # Elecrow ESP32-P4 All-in-One Starter Kit
 
@@ -45,7 +15,7 @@ import UltrasonicSvg from './1-ultrasonic-sensor-p1.svg';
 
 The Elecrow ESP32-P4 All-in-One Starter Kit is a comprehensive AI and IoT development board based on Espressif's ESP32-P4 microprocessor. It integrates 16 common sensor modules on a single circuit board, eliminating the need for complex soldering and wiring, making it ideal for students, educators, makers, and hardware engineers to learn AI applications and embedded development.
 
-<img src={require('./elecrow-esp32-p4-aio-kit.png').default} width="400" alt="Elecrow ESP32-P4 All-In-One Kit" />
+![Elecrow ESP32-P4 All-In-One Kit](elecrow-esp32-p4-aio-kit.png)
 
 ## Specifications
 
@@ -68,7 +38,7 @@ The Elecrow ESP32-P4 All-in-One Starter Kit is a comprehensive AI and IoT develo
 | **Dimensions** | 195×170×46 mm |
 | **Weight** | 600g |
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Back to top](#elecrow-esp32-p4-all-in-one-starter-kit)
 
 ## Integrated Sensors
 
@@ -262,7 +232,7 @@ Windows PowerShell:
 esphome run Your-YAML-Name-Here-001.yaml --device COM5
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Back to top](#elecrow-esp32-p4-all-in-one-starter-kit)
 
 ## Pinout / Schematics / Examples
 
@@ -276,13 +246,9 @@ Schematic 1
 
 [ESPHome Docs - Ultrasonic](https://esphome.io/components/sensor/ultrasonic/)
 
-<img src={require('./elecrow-esp32-p4-aio-ultrasonic.png').default} width="200" alt="Ultrasonic Sensor(HC-SR04)" />
+![Ultrasonic Sensor(HC-SR04)](elecrow-esp32-p4-aio-ultrasonic.png)
 
-<UltrasonicSvg
-  title="Ultrasonic (HC-SR04)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Ultrasonic (HC-SR04)](./1-ultrasonic-sensor-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -305,13 +271,9 @@ Manual Lesson 10
 
 [ESPHome Docs - BH1750](https://esphome.io/components/sensor/bh1750/)
 
-<img src={require('./elecrow-esp32-p4-aio-bh1750.png').default} width="200" alt="Light/Luminosity Sensor (BH1750)" />
+![Light/Luminosity Sensor (BH1750)](elecrow-esp32-p4-aio-bh1750.png)
 
-<Svg2LightSensorP1Svg
-  title="Light/Luminosity Sensor (BH1750)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Light/Luminosity Sensor (BH1750)](./2-light-sensor-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -334,13 +296,9 @@ Manual Lesson 12
 
 [ESPHome Docs - LED Strip](https://esphome.io/components/light/esp32_rmt_led_strip/)
 
-<img src={require('./elecrow-esp32-p4-aio-ws2814a.png').default} width="200" alt="WS2814A RGBW" />
+![WS2814A RGBW](elecrow-esp32-p4-aio-ws2814a.png)
 
-<Svg3LedP1Svg
-  title="WS2814A RGBW"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![WS2814A RGBW](./3-led-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -362,13 +320,9 @@ Manual Lesson 14
 
 [ESPHome Docs - DHT](https://esphome.io/components/sensor/dht/)
 
-<img src={require('./elecrow-esp32-p4-aio-dht20.png').default} width="200" alt="Temperature & Humidity Sensor (DHT20)" />
+![Temperature & Humidity Sensor (DHT20)](elecrow-esp32-p4-aio-dht20.png)
 
-<Svg4TemperatureHumidityP1Svg
-  title="Temperature & Humidity Sensor (DHT20)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Temperature & Humidity Sensor (DHT20)](./4-temperature-humidity-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -377,8 +331,6 @@ Manual Lesson 14
 
 ```yaml file=example-007.yaml
 ```
-
-<a id="lesson-temperature-humidity-dht20"></a>
 
 ### Lesson: Temperature & Humidity (DHT20)
 
@@ -393,13 +345,9 @@ Manual Lesson 11
 
 [ESPHome Docs - MIPI DSI](https://esphome.io/components/display/mipi_dsi/)
 
-<img src={require('./elecrow-esp32-p4-aio-display.png').default} width="200" alt="Display (EK79007)" />
+![Display (EK79007)](elecrow-esp32-p4-aio-display.png)
 
-<Svg5DsiInterfaceP1Svg
-  title="Display (EK79007)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Display (EK79007)](./5-dsi-interface-p1.svg)
 
 **Key Display Parameters (Verified from Official Code):**
 
@@ -448,13 +396,9 @@ Manual Lesson 11
 
 [ESPHome Docs - Touch Screen](https://esphome.io/components/touchscreen/gt911/)
 
-<img src={require('./elecrow-esp32-p4-aio-goodix-gt911.png').default} width="200" alt="Touch Screen (Goodix GT911)" />
+![Touch Screen (Goodix GT911)](elecrow-esp32-p4-aio-goodix-gt911.png)
 
-<Svg5DsiInterfaceP1Svg
-  title="Touchscreen (Goodix GT911))"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Touchscreen (Goodix GT911))](./5-dsi-interface-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -466,8 +410,6 @@ Manual Lesson 11
 ```yaml file=example-010.yaml
 ```
 
-<a id="lesson-display-touch"></a>
-
 ### Lesson: Display & Touch
 
 Manual Lesson 9
@@ -476,8 +418,6 @@ Manual Lesson 9
 
 ```yaml file=example-011.yaml
 ```
-
-<a id="lesson-display-with-lvgl-touch"></a>
 
 ### Lesson: Display with LVGL & Touch
 
@@ -488,19 +428,15 @@ Manual Lesson 19
 ```yaml file=example-012.yaml
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Back to top](#elecrow-esp32-p4-all-in-one-starter-kit)
 
 #### 6. PIR Motion Sensor (Silvan BIS0001) J101
 
 [ESPHome Docs - PIR](https://devices.esphome.io/devices/generic-pir/)
 
-<img src={require('./elecrow-esp32-p4-aio-pir.png').default} width="200" alt="PIR Motion Sensor (Silvan BIS0001)" />
+![PIR Motion Sensor (Silvan BIS0001)](elecrow-esp32-p4-aio-pir.png)
 
-<Svg6PirP1Svg
-  title="PIR Motion Sensor (Silvan BIS0001)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![PIR Motion Sensor (Silvan BIS0001)](./6-pir-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -521,19 +457,13 @@ Manual Lesson 4
 ```yaml file=example-014.yaml
 ```
 
-<a id="7-servo-sg90-180-j3"></a>
-
 #### 7. Servo (V1.0 Continuous / V1.1 180°) J3
 
 [ESPHome Docs - Servo](https://esphome.io/components/servo/)
 
-<img src={require('./elecrow-esp32-p4-aio-servosg90.png').default} width="200" alt="Servo (V1.0 continuous / V1.1 180°)" />
+![Servo (V1.0 continuous / V1.1 180°)](elecrow-esp32-p4-aio-servosg90.png)
 
-<Svg7ServoMotorP1Svg
-  title="Servo (V1.0 continuous / V1.1 180°)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Servo (V1.0 continuous / V1.1 180°)](./7-servo-motor-p1.svg)
 
 | Pin / GPIO | Label |
 | :--- | :--- |
@@ -552,8 +482,6 @@ Both revisions use the GPIO25 PWM signal shown below.
 
 ```yaml file=example-015.yaml
 ```
-
-<a id="lesson-servo-motor-control"></a>
 
 ### Lesson: Servo Motor Control (V1.0 Continuous Rotation)
 
@@ -576,11 +504,7 @@ continuous-rotation speed.
 
 #### 8. Accelerometer & Gyro (STMicroelectronics LSM6DS3TR-C IMU 6-DoF) U6
 
-<Svg8AccelerometerAndGyroP1Svg
-  title="Accelerometer & Gyro (LSM6DS3TR-C)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Accelerometer & Gyro (LSM6DS3TR-C)](./8-accelerometer-and-gyro-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -601,11 +525,7 @@ Manual Lesson 13
 
 #### 9. Hall Effect Sensor (Hallwee HAL248) U7
 
-<Svg9HallSensorP1Svg
-  title="Hall Effect Sensor (HAL248)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Hall Effect Sensor (HAL248)](./9-hall-sensor-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -627,11 +547,7 @@ Manual Lesson 5
 
 #### 10. ADC Buttons Custom Key Ladder k5 k6 k7 k8
 
-<Svg10CustomKeyP1Svg
-  title="ADC Buttons"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![ADC Buttons](./10-custom-key-p1.svg)
 
 | GPIO | Resistor | Key / Direction |
 | :--- | :--- | :--- |
@@ -656,13 +572,9 @@ Manual Lesson 15
 
 [ESPHome Docs - Touchpad](https://esphome.io/components/binary_sensor/ttp229/)
 
-<img src={require('./elecrow-esp32-p4-aio-touch-pad-button.png').default} width="200" alt="Touch Pad Button (TTP223)" />
+![Touch Pad Button (TTP223)](elecrow-esp32-p4-aio-touch-pad-button.png)
 
-<Svg11TouchSensorP1Svg
-  title="Touch Pad Button (TTP223)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Touch Pad Button (TTP223)](./11-touch-sensor-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -689,13 +601,9 @@ Manual Lesson 3
 > support was initially treated as unavailable. The configuration below was
 > tested after that change was added.
 
-<img src={require('./elecrow-esp32-p4-aio-linkmems-lmd4737t261-mic.png').default} width="200" alt="Mic (LMD4737T261-OAC02)" />
+![Mic (LMD4737T261-OAC02)](elecrow-esp32-p4-aio-linkmems-lmd4737t261-mic.png)
 
-<Svg12MicP1Svg
-  title="Mic (LMD4737T261-OAC02)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Mic (LMD4737T261-OAC02)](./12-mic-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -718,13 +626,9 @@ Manual Lesson 17
 
 [ESPHome Docs - I2S Audio](https://esphome.io/components/media_player/i2s_audio/)
 
-<img src={require('./elecrow-esp32-p4-aio-speaker-ns4168.png').default} width="200" alt="I2S Audio (NS4168)" />
+![I2S Audio (NS4168)](elecrow-esp32-p4-aio-speaker-ns4168.png)
 
-<Svg13AudioInterfaceP1Svg
-  title="I2S Audio (NS4168)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![I2S Audio (NS4168)](./13-audio-interface-p1.svg)
 
 #### Pinout
 
@@ -753,13 +657,9 @@ Manual Lesson 18
 
 [ESPHome Docs - ADC](https://esphome.io/components/sensor/adc/)
 
-<img src={require('./elecrow-esp32-p4-aio-mq-2-switch.png').default} width="200" alt="Gas Sensor (MQ-2)" />
+![Gas Sensor (MQ-2)](elecrow-esp32-p4-aio-mq-2-switch.png)
 
-<Svg14GasMq2P1Svg
-  title="Gas Sensor (MQ-2)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Gas Sensor (MQ-2)](./14-gas-mq-2-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -781,13 +681,9 @@ Manual Lesson 16
 
 [ESPHome Docs - Switch](https://esphome.io/components/switch/)
 
-<img src={require('./elecrow-esp32-p4-aio-relay.png').default} width="200" alt="Relay" />
+![Relay](elecrow-esp32-p4-aio-relay.png)
 
-<Svg15RelayP1Svg
-  title="Relay"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Relay](./15-relay-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -809,20 +705,16 @@ Manual Lesson 2
 
 [ESPHome Docs - CSI Camera](https://github.com/esphome/esphome/pull/7639)
 
-<img src={require('./elecrow-esp32-p4-aio-camera.png').default} width="200" alt="Camera CSI (SC2336)" />
+![Camera CSI (SC2336)](elecrow-esp32-p4-aio-camera.png)
 
-<Svg16CsiInterfaceP1Svg
-  title="Camera CSI (SC2336)"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Camera CSI (SC2336)](./16-csi-interface-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
 | GPIO45 | SDA (0x30) |
 | GPIO46 | SCL (0x30) |
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Back to top](#elecrow-esp32-p4-all-in-one-starter-kit)
 
 ### Additional Information
 
@@ -846,13 +738,9 @@ Manual Lesson 7
 
 [ESPHome Docs - TF Card Slot](https://github.com/p1ngb4ck/esphome/tree/dev/esphome/components/storage)
 
-<img src={require('./elecrow-esp32-p4-aio-sdcard-slot.png').default} width="200" alt="SD-Card Slot" />
+![SD-Card Slot](elecrow-esp32-p4-aio-sdcard-slot.png)
 
-<ExtraSdcardSlotP1Svg
-  title="SD-Card Slot"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![SD-Card Slot](./extra-sdcard-slot-p1.svg)
 
 | Function / GPIO | Hardware Pin |
 | :--- | :--- |
@@ -872,21 +760,13 @@ Add the credentials to ESPHome's `secrets.yaml` file:
 
 [ESPHome Docs - P4](https://esphome.io/components/esp32/#esp32-p4)
 
-<img src={require('./elecrow-esp32-p4-aio-esp32-p4.png').default} width="200" alt="ESP32-P4 Drawing" />
+![ESP32-P4 Drawing](elecrow-esp32-p4-aio-esp32-p4.png)
 
-<ExtraEsp32P4P1Svg
-  title="ESP32-P4 Schematic"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![ESP32-P4 Schematic](./extra-esp32-p4-p1.svg)
 
 ### IO LED
 
-<ExtraIoLedP1Svg
-  title="IO LED"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![IO LED](./extra-io-led-p1.svg)
 
 #### J8
 
@@ -941,8 +821,6 @@ Add the credentials to ESPHome's `secrets.yaml` file:
 ```yaml file=example-037.yaml
 ```
 
-<a id="lesson-gpio-led-control"></a>
-
 ### Lesson: GPIO - LED Control
 
 Manual Lesson 1
@@ -954,13 +832,9 @@ Manual Lesson 1
 
 #### Accessory Module Header
 
-<img src={require('./elecrow-esp32-p4-aio-wireless-header.png').default} width="200" alt="Wireless Module" />
+![Wireless Module](elecrow-esp32-p4-aio-wireless-header.png)
 
-<ExtraWirelessModuleP1Svg
-  title="Wireless Module"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Wireless Module](./extra-wireless-module-p1.svg)
 
 > **Wireless-module pin conflict warning:** The accessory header shares ESP32-P4
 > GPIOs with other board functions. When a wireless module is installed, do
@@ -1005,19 +879,11 @@ The Elecrow AIO ESP32-P4 kit supports several expansion modules:
 
 [ESPHome Docs - C6](https://esphome.io/components/esp32/#esp32-c6)
 
-<img src={require('./extra-wireless-module-esp32-c6.png').default} width="200" alt="ESP32-C6 Wireless Module" />
+![ESP32-C6 Wireless Module](extra-wireless-module-esp32-c6.png)
 
-<ExtraWirelessModuleC6Svg
-  title="Wireless Module"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Wireless Module](./Extra_Wireless_Module_C6.svg)
 
-<ExtraWirelessModuleC6P1Svg
-  title="Wireless Module"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Wireless Module](./Extra_Wireless_Module_C6_p1.svg)
 
 | Specifications | |
 | :--- | :--- |
@@ -1246,7 +1112,7 @@ GPIO11    GPIO23
 
 #### ESP32-H2 Wireless Module
 
-<img src={require('./extra-wireless-module-esp32-h2.png').default} width="200" alt="ESP32-H2 Wireless Module" />
+![ESP32-H2 Wireless Module](extra-wireless-module-esp32-h2.png)
 
 | Specifications | |
 | :--- | :--- |
@@ -1300,7 +1166,7 @@ orientation and adapter wiring before power is applied.
 
 #### LoRa Wireless Module
 
-<img src={require('./extra-wireless-module-lora.png').default} width="200" alt="Wireless Module" />
+![Wireless Module](extra-wireless-module-lora.png)
 
 | Specifications | |
 | :--- | :--- |
@@ -1362,7 +1228,7 @@ against the module-side pinout above.
 
 #### nRF2401 (ISM 2.4GHz) Wireless Module
 
-<img src={require('./extra-wireless-module-nrf2401.png').default} width="200" alt="nRF24L01+ Wireless Module" />
+![nRF24L01+ Wireless Module](extra-wireless-module-nrf2401.png)
 
 | Specifications | |
 | :--- | :--- |
@@ -1425,8 +1291,8 @@ identify ESP32-P4 host GPIOs.
 
 #### HaLow (Sub 1GHz) Wireless Module
 
-<img src={require('./extra-wifi-halow-front.png').default} width="200" alt="HaLow Wireless Module" />
-<img src={require('./extra-wifi-halow-back.png').default} width="200" alt="HaLow Wireless Module" />
+![HaLow Wireless Module](extra-wifi-halow-front.png)
+![HaLow Wireless Module](extra-wifi-halow-back.png)
 
 Wi-Fi HaLow serves as a specialized wireless protocol designed specifically for Internet of Things (IoT) use cases. Functioning below the 1 GHz frequency band, this technology surpasses conventional Wi-Fi in its ability to transmit over greater distances and through barriers more effectively. Its low-power design with efficient sleep and wake mechanisms extends battery life, while supporting high device density and stable connections in crowded environments, solving congestion issues of traditional Wi-Fi.
 
@@ -1487,7 +1353,7 @@ must be verified before assigning host-side GPIOs.
 
 ### 1. GRC EnSens BME688 Air Quality Sensor Add-on
 
-<img src={require('./extra-ensens.png').default} width="200" alt="EnSens" />
+![EnSens](extra-ensens.png)
 
 Environmental sensor add-on module with Bosch BME688 for VOC, eCO₂, IAQ, temperature, pressure, and humidity monitoring. Plug-and-play with Elecrow Panel via I²C. Ideal for smart homes, air quality dashboards, and automation.
 
@@ -1540,8 +1406,8 @@ Environmental sensor add-on module with Bosch BME688 for VOC, eCO₂, IAQ, tempe
 
 ### 2. GRC AI Add-on (Himax HX6538)
 
- <img src={require('./extra-hx6538-front.png').default} width="200" alt="HX6538" />
- <img src={require('./extra-hx6538-back.png').default} width="220" alt="HX6538" />
+ ![HX6538](extra-hx6538-front.png)
+ ![HX6538](extra-hx6538-back.png)
 
 Ready-to-use AI coprocessor with open-source firmware, hardware, and examples. Turn your CrowPanel into a smart, AI-powered device — run TinyML and TinyLM locally, with no cloud and no setup.
 
@@ -1609,7 +1475,7 @@ installing the module.
 - **Product Information**: [Official Website](https://www.elecrow.com/grc-ai-add-on-for-crowpanel-on-hx6538.html)
 - **GRC AI Add-on**: [GitHub Repository](https://github.com/Grovety/grc_ai_add-on)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Back to top](#elecrow-esp32-p4-all-in-one-starter-kit)
 
 #### Reset Switch K1
 
@@ -1626,13 +1492,9 @@ the bootloader during flashing.
 
 [ESPHome Docs - I2C](https://esphome.io/components/i2c.html)
 
-<img src={require('./elecrow-esp32-p4-aio-jst-hy2-0.png').default} width="400" alt="I2C Header" />
+![I2C Header](elecrow-esp32-p4-aio-jst-hy2-0.png)
 
-<ExtraI2CHeaderP1Svg
-  title="I2C Header"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![I2C Header](./extra-i2c-header-p1.svg)
 
 | Pin/GPIO | Label |
 | :--- | :--- |
@@ -1646,13 +1508,9 @@ the bootloader during flashing.
 
 #### I2C Header JST-HY2.0 J18
 
-<img src={require('./elecrow-esp32-p4-aio-jst-hy2-0.png').default} width="400" alt="I2C Header" />
+![I2C Header](elecrow-esp32-p4-aio-jst-hy2-0.png)
 
-<ExtraI2CHeaderP1Svg
-  title="I2C Header"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![I2C Header](./extra-i2c-header-p1.svg)
 
 | Pin/GPIO | Label |
 | :--- | :--- |
@@ -1668,13 +1526,9 @@ the bootloader during flashing.
 
 [ESPHome Docs - UART](https://esphome.io/components/uart.html)
 
-<img src={require('./elecrow-esp32-p4-aio-jst-hy2-0.png').default} width="400" alt="UART Header" />
+![UART Header](elecrow-esp32-p4-aio-jst-hy2-0.png)
 
-<ExtraUartHeaderP1Svg
-  title="UART Header"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![UART Header](./extra-uart-header-p1.svg)
 
 | Pin | Label |
 | :--- | :--- |
@@ -1706,17 +1560,11 @@ the bootloader during flashing.
 ```yaml file=example-051.yaml
 ```
 
-<a id="usb1--power-in-j5"></a>
-
 #### USB1 & Power In J5
 
-<img src={require('./elecrow-esp32-p4-aio-usb-c.png').default} width="200" alt="USB C" />
+![USB C](elecrow-esp32-p4-aio-usb-c.png)
 
-<ExtraUsbTypeCX2AndTypeAP1Svg
-  title="USB C"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![USB C](./extra-usb-type-c-x2-and-type-a-p1.svg)
 
 | Pin | Label |
 | :--- | :--- |
@@ -1725,17 +1573,11 @@ the bootloader during flashing.
 | 3 | USB1_D_P |
 | 4 | GND |
 
-<a id="usb2-high-speed--power-in-j1"></a>
-
 #### USB2 High Speed & Power In J1
 
-<img src={require('./elecrow-esp32-p4-aio-usb-c.png').default} width="200" alt="USB C" />
+![USB C](elecrow-esp32-p4-aio-usb-c.png)
 
-<ExtraUsbTypeCX2AndTypeAP1Svg
-  title="USB C"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![USB C](./extra-usb-type-c-x2-and-type-a-p1.svg)
 
 | Pin | Label |
 | :--- | :--- |
@@ -1746,13 +1588,9 @@ the bootloader during flashing.
 
 #### USB Type A J4
 
-<img src={require('./elecrow-esp32-p4-aio-usb-a.png').default} width="200" alt="USB Type A" />
+![USB Type A](elecrow-esp32-p4-aio-usb-a.png)
 
-<ExtraUsbTypeCX2AndTypeAP1Svg
-  title="USB C"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![USB C](./extra-usb-type-c-x2-and-type-a-p1.svg)
 
 | Pin | Label |
 | :--- | :--- |
@@ -1765,13 +1603,9 @@ the bootloader during flashing.
 
 [ESPHome Docs - Ethernet](https://esphome.io/components/ethernet.html)
 
-<img src={require('./elecrow-esp32-p4-aio-ethernet.png').default} width="200" alt="Ethernet" />
+![Ethernet](elecrow-esp32-p4-aio-ethernet.png)
 
-<ExtraPhyP1Svg
-  title="Ethernet"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Ethernet](./extra-phy-p1.svg)
 
 | GPIO | Label |
 | :--- | :--- |
@@ -1785,11 +1619,7 @@ the bootloader during flashing.
 
 ### Power Rails
 
-<ExtraPowerP1Svg
-  title="Power"
-  role="img"
-  style={{ width: '800px', height: 'auto' }}
-/>
+![Power](./extra-power-p1.svg)
 
 | Rail | Voltage | IC | Notes |
 | ------ | --------- | ----- | ------- |
@@ -1857,4 +1687,4 @@ board configuration; verify every GPIO assignment before using it.
 
 - [Elecrow Forum](https://forum.elecrow.com)
 - [Elecrow Discord](https://discord.com/invite/xYXCnH4AR9)
-- Technical Support: <techsupport@elecrow.com>
+- Technical Support: [techsupport@elecrow.com](mailto:techsupport@elecrow.com)
