@@ -5,6 +5,7 @@ i2c:
 
 sensor:
   - platform: aht10
+    variant: AHT20
     address: 0x38
     temperature:
       name: "Temperature"

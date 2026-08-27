@@ -4,4 +4,4 @@ sensor:
     pin: GPIO16
     name: "Button ADC"
     update_interval: 100ms
-    attenuation: 11db
+    attenuation: 12db

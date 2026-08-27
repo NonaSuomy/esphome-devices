@@ -4,10 +4,11 @@ sensor:
     name: "Button ADC"
     id: button_adc
     update_interval: 50ms
-    attenuation: 11db
+    attenuation: 12db
     filters:
-      - sliding_window_moving_average:
-          window_size: 3
+      - median:
+          window_size: 5
+          send_every: 1
     on_value_range:
       - below: 0.5
         above: 0.3
@@ -51,9 +52,15 @@ sensor:
           - light.turn_off: rgb_leds
 
 light:
-  - platform: neopixelbus
-    pin: GPIO8
-    num_leds: 4
-    name: "RGB LEDs"
+  - platform: esp32_rmt_led_strip
+    chipset: WS2814
+    pin:
+      number: GPIO8
+    num_leds: 1
+    name: "RGBW LED"
     id: rgb_leds
-    variant: WS2812X
+    rgb_order: WRGB
+    is_wrgb: true
+    color_interlock: true
+    rmt_symbols: 192
+    default_transition_length: 0s
