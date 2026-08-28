@@ -1685,6 +1685,9 @@ on custom components and development branches listed in the YAML. Replace all
 
 - **Product Information**: [Official Website](https://www.elecrow.com/all-in-one-starter-kit-for-esp32-p4-with-common-board-design-16-modules-and-ai-lessons.html)
 - **GitHub Repository**: [All-in-one-Starter-Kit-for-ESP32-P4](https://github.com/Elecrow-RD/All-in-one-Starter-Kit-for-ESP32-P4-with-Common-Board-design)
+- **3D Model (STP archive)**: [ESP32-P4 3D files](https://github.com/Elecrow-RD/All-in-one-Starter-Kit-for-ESP32-P4-with-Common-Board-design/blob/master/3D%20file/ESP32-p4.zip)
+- **Camera Interface Schematic V1.0**: [Camera board schematic (PDF)](https://github.com/Elecrow-RD/All-in-one-Starter-Kit-for-ESP32-P4-with-Common-Board-design/blob/master/Eagle_SCH%26PCB/1.0/EV-Board-Camera_V1.0/EV-Board-Camera_V1.0.pdf)
+- **LCD Interface Schematic V1.0**: [LCD interface board schematic (PDF)](https://github.com/Elecrow-RD/All-in-one-Starter-Kit-for-ESP32-P4-with-Common-Board-design/blob/master/Eagle_SCH%26PCB/1.0/LCD_Interface%20Board_V1.0/LCD_Interface%20Board_V1.0.pdf)
 - **Wiki Documentation**: [ESP32-P4 Kit Wiki](https://www.elecrow.com/wiki/All-in-one_Starter_Kit_for_ESP32-P4_with_Common_Board_design.html)
 - **Schematic V1.0**: [All-in-one Starter Kit for ESP32-P4 Arduino V1.0 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_Arduino-V1.0.pdf)
 - **Schematic V1.1**: [All-in-one Starter Kit for ESP32-P4 Arduino V1.1 (PDF)](https://www.elecrow.com/download/product/SEE00804D/All-in-one_Starter_Kit_for_ESP32-P4_Arduino-V1.1.pdf)
